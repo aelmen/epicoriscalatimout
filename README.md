@@ -32,7 +32,14 @@ In the context of Epicor iScala, "application pools" refer to the groups of comp
 
 Please exercise caution when running PowerShell scripts, especially those that make changes to system settings. Review the script thoroughly before execution.
 
-For support or inquiries, you can contact the script author, Anders Elmén, at the provided email address or phone number.
+## Contributions and Feedback
+
+Contributions to enhance and improve this script are welcome! If you have suggestions, bug reports, or ideas for further development, please feel free to create an issue or submit a pull request.
+
+## Support and Consultation
+
+For support related to this script or other issues with Epicor iScala, you can reach out to **hello@need2code.se** for consultation. Please note that a fee may be charged for more extensive troubleshooting.
+
 
 ---
 
