@@ -18,15 +18,21 @@ COM is a Microsoft technology that enables software components to communicate an
 
 In the context of Epicor iScala, "application pools" refer to the groups of components and services managed by the ERP system. Properly configured application pools can have a significant impact on the performance and efficiency of Epicor iScala. By setting appropriate values for concurrent application pool sizes, you can ensure optimal resource allocation and response times, leading to a smoother user experience and improved overall system performance.
 
-## How to Use the Script
+## Running the Script
+
+**Important:** To ensure that the script has the necessary administrative privileges to modify system settings, please run PowerShell as an administrator before executing the script.
 
 1. Clone or download this repository to your local machine.
-2. Open a PowerShell console and navigate to the directory containing the script (`SetiScalaDTC.ps1`).
+2. Open a PowerShell console as an administrator and navigate to the directory containing the script (`SetiScalaDTC.ps1`).
 3. Run the script by entering `.\SetiScalaDTC.ps1` and follow the prompts.
    - The script will prompt you to enter the desired timeout value (in seconds) and pool size.
    - If you press Enter without entering a value, the script will use default values.
 4. The script will configure the MSDTC settings and application pools for Epicor iScala components.
 5. Upon completion, the script will display a message indicating success and a note about showing appreciation through Swish.
+
+## Restoring Settings
+
+In case any issues arise after running the script, you can always restore the default settings by initiating the repair process in the Epicor iScala setup.
 
 ## Note
 
