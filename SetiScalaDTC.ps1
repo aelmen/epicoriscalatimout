@@ -1,16 +1,19 @@
+#####################################################################
 # NAME: SetiScalaDTC
 # DESC: Configuring the MSDTC for Epicor iScala Components
 # DATE: 2019-06-24
 # AUTH: Anders Elmén, Need2Code AB.
-# HIST: 2019-06-24 CREATED
+# HIST: 2019-06-24     CREATED
+#       2023-09-03     UPDATE
+#####################################################################
 
-# Promptar för att ange timeout-värde och poolstorlek
-$timeout = Read-Host "Ange timeout (standard: $defaultTimeout)"
+# Prompt for entering timeout value and pool size
+$timeout = Read-Host "Enter timeout (default: $defaultTimeout)"
 if ([string]::IsNullOrWhiteSpace($timeout)) {
     $timeout = $defaultTimeout
 }
 
-$poolSize = Read-Host "Ange poolstorlek (standard: $defaultPoolSize)"
+$poolSize = Read-Host "Enter pool size (default: $defaultPoolSize)"
 if ([string]::IsNullOrWhiteSpace($poolSize)) {
     $poolSize = $defaultPoolSize
 }
@@ -19,10 +22,10 @@ if ([string]::IsNullOrWhiteSpace($poolSize)) {
 $defaultTimeout = 3600
 $defaultPoolSize = 1
 
-# CONFIGURE DTC Server
+# Configure DTC Server
 Set-DtcNetworkSetting -DtcName "Local" -AuthenticationLevel Mutual -InboundTransactionsEnabled $true -OutboundTransactionsEnabled $true -RemoteClientAccessEnabled $true -RemoteAdministrationAccessEnabled $true -XATransactionsEnabled $true -LUTransactionsEnabled $true -Confirm
 
-# CONNECT TO ADMIN
+# Connect to COMAdmin
 $comAdmin = New-Object -com ("COMAdmin.COMAdminCatalog.1")
 $LocalColl = $comAdmin.Connect("localhost")
 $LocalComputer = $LocalColl.GetCollection("LocalComputer",$LocalColl.Name)
@@ -30,7 +33,7 @@ $LocalComputer.Populate()
 $Applications =  $LocalColl.GetCollection("Applications", $LocalColl.Name)
 $Applications.Populate()
 
-# Sätt ConcurrentApps utanför loopen
+# Iterate through applications
 foreach ($Application in $Applications)
 {
     switch ($Application.Name)
@@ -52,7 +55,7 @@ foreach ($Application in $Applications)
     }
 }
 
-# Sätt ConcurrentApps efter loopen
+# Set ConcurrentApps value after component loop
 foreach ($Application in $Applications)
 {
     switch ($Application.Name)
@@ -76,9 +79,10 @@ if ($result.Equals(1))
     Write-Host "Transaction Timeout = $CurrVal"
 }
 
-Log-Message "Scriptet kördes utan fel."
+# Log success message
+Log-Message "Script executed without errors."
 
-# Visa meddelande om att bjuda på kaffe
+# Display message for buying coffee
 $phoneNumber = "0735191031"
-$coffeeMessage = "Om detta script har hjälpt dig och du vill bjuda på en kaffe, swisha gärna till $phoneNumber"
+$coffeeMessage = "If this script helped you and you'd like to buy me a coffee, feel free to send a Swish to $phoneNumber"
 Write-Host $coffeeMessage -ForegroundColor Green
