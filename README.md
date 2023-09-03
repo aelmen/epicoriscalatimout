@@ -20,6 +20,11 @@ In the context of Epicor iScala, "application pools" refer to the groups of comp
 
 ## Getting Started
 
+## Important Considerations
+
+- **DTC Restart**: When running the script, be aware that changing DTC settings can cause the Distributed Transaction Coordinator to restart. As a result, active transactions might be affected, potentially leading to the disruption of services or user sessions. It is recommended to schedule the script execution during maintenance windows or periods of low user activity to minimize impact.
+- **User Logout**: If the script is executed while users are logged in, there is a possibility that users might be logged out due to DTC restarts or other system changes. Inform users and plan accordingly to avoid inconvenience.
+
 ### Prerequisites
 
 Before you begin, make sure you have Git installed on your system. If not, you can download and install it from [here](https://git-scm.com/downloads).
