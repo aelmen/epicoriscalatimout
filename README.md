@@ -2,6 +2,10 @@
 
 This script is designed to configure the Microsoft Distributed Transaction Coordinator (MSDTC) settings for Epicor iScala components. The script sets specific values for transaction timeouts and concurrent application pool sizes to optimize the performance and reliability of Epicor iScala within the Distributed COM (DCOM) architecture.
 
+## Compatibility
+
+Please note that this script is designed for Epicor iScala version 3.3 or later. It's important to ensure compatibility with your specific version before running the script.
+
 ## About Epicor iScala
 
 Epicor iScala is an enterprise resource planning (ERP) software suite designed for businesses to manage various aspects of their operations, including finance, inventory, production, and more.
@@ -10,9 +14,9 @@ Epicor iScala is an enterprise resource planning (ERP) software suite designed f
 
 COM is a Microsoft technology that enables software components to communicate and interact with each other within a Windows environment. DCOM extends this concept to distributed systems, allowing components to communicate across network boundaries.
 
-## Application Pools
+## Application Pools and Performance
 
-In the context of this script, "application pools" refer to the groups of components and services managed by Epicor iScala. These pools handle various tasks within the ERP system.
+In the context of Epicor iScala, "application pools" refer to the groups of components and services managed by the ERP system. Properly configured application pools can have a significant impact on the performance and efficiency of Epicor iScala. By setting appropriate values for concurrent application pool sizes, you can ensure optimal resource allocation and response times, leading to a smoother user experience and improved overall system performance.
 
 ## How to Use the Script
 
@@ -22,7 +26,7 @@ In the context of this script, "application pools" refer to the groups of compon
    - The script will prompt you to enter the desired timeout value (in seconds) and pool size.
    - If you press Enter without entering a value, the script will use default values.
 4. The script will configure the MSDTC settings and application pools for Epicor iScala components.
-5. Upon completion, the script will display a message indicating success and a note about buying coffee to support the creator.
+5. Upon completion, the script will display a message indicating success and a note about showing appreciation through Swish.
 
 ## Note
 
@@ -32,4 +36,4 @@ For support or inquiries, you can contact the script author, Anders Elmén, at t
 
 ---
 
-If you found this script helpful and would like to show your appreciation, consider sending a coffee via Swish to the following number: 0735191031.
+If you found this script helpful and would like to show your appreciation, consider sending a coffee via Swish to Anders Elmén at the following number: 0735191031 (for users located in Sweden with Swish).
