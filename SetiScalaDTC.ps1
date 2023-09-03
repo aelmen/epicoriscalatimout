@@ -7,6 +7,10 @@
 #       2023-09-03     UPDATE
 #####################################################################
 
+# DEFAULT VALUES
+$defaultTimeout = 3600
+$defaultPoolSize = 1
+
 # Prompt for entering timeout value and pool size
 $timeout = Read-Host "Enter timeout (default: $defaultTimeout)"
 if ([string]::IsNullOrWhiteSpace($timeout)) {
@@ -17,10 +21,6 @@ $poolSize = Read-Host "Enter pool size (default: $defaultPoolSize)"
 if ([string]::IsNullOrWhiteSpace($poolSize)) {
     $poolSize = $defaultPoolSize
 }
-
-# DEFAULT VALUES
-$defaultTimeout = 3600
-$defaultPoolSize = 1
 
 # Configure DTC Server
 Set-DtcNetworkSetting -DtcName "Local" -AuthenticationLevel Mutual -InboundTransactionsEnabled $true -OutboundTransactionsEnabled $true -RemoteClientAccessEnabled $true -RemoteAdministrationAccessEnabled $true -XATransactionsEnabled $true -LUTransactionsEnabled $true -Confirm
